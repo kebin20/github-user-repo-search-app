@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./Navbar";
-// import SearchBar from "./SearchBar";
+import SearchBar from "./SearchBar";
 // import UserDetails from "./UserDetails";
 
 import CssBaseline from "@mui/material/CssBaseline";
@@ -10,8 +10,8 @@ function App() {
     <>
       <CssBaseline />
       <Navbar />
-      {/* <SearchBar />
-      <UserDetails /> */}
+      <SearchBar />
+      {/* <UserDetails /> */}
     </>
   );
 }
