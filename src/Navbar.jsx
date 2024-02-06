@@ -28,7 +28,11 @@ export default function Navbar() {
             devfinder
           </Typography>
           <Box sx={{ flexGrow: 1 }}>
-            <Typography variant="h6" component="span" sx={{ flexGrow: 1 }}>
+            <Typography
+              variant="h6"
+              component="span"
+              sx={{ flexGrow: 1, fontSize: "13px" }}
+            >
               LIGHT
             </Typography>
             <Switch {...label} defaultChecked />
