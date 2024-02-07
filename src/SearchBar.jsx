@@ -2,11 +2,13 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
+import Button from "@mui/material/Button";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: "#00699E",
+  backgroundColor: "#202C49ff",
+  color: "white",
   marginLeft: 0,
   width: "100%",
   [theme.breakpoints.up("sm")]: {
@@ -44,16 +46,26 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   return (
-    <Box sx={{ flexGrow: 1, backgroundColor: "#023047" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexGrow: 1,
+        backgroundColor: "#202C49ff",
+        borderRadius: "10px",
+        m: 2,
+        padding: "20px 15px",
+      }}
+    >
       <Search>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
         <StyledInputBase
-          placeholder="Search…"
-          inputProps={{ "aria-label": "search" }}
+          placeholder="Search Github username…"
+          inputProps={{ "aria-label": "search Github username" }}
         />
       </Search>
+      <Button variant="contained">Search</Button>
     </Box>
   );
 }
