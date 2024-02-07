@@ -1,3 +1,19 @@
-html {
-  background-color: #023047;
+/* CSS HEX */
+/* --oxford-blue: #151C2Eff;
+--oxford-blue-2: #131B2Fff;
+--black: #000000ff;
+--antiflash-white: #F1F4F9ff;
+--oxford-blue-3: #141C2Fff;
+--space-cadet: #202C49ff;
+--blue-crayola: #0078FDff;
+--oxford-blue-4: #141C2Fff;
+--charcoal: #495167ff; */
+
+:root {
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #151c2eff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
