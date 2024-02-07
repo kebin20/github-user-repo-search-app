@@ -11,13 +11,14 @@ export default function UserDetails() {
     <Box
       component="section"
       sx={{
-        p: 2,
+        p: 3,
         backgroundColor: "#202C49ff",
         color: "white",
         m: 2,
+        mt: 4,
         display: "flex",
         flexDirection: "column",
-        borderRadius: "15px",
+        borderRadius: "10px",
       }}
     >
       <Box component={"div"} sx={{ display: "flex", flexGrow: 1, gap: "20px" }}>
@@ -33,7 +34,7 @@ export default function UserDetails() {
         </Box>
       </Box>
 
-      <p>
+      <p style={{ marginTop: "25px", marginBottom: "25px" }}>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima eius
         hic nostrum, qui reprehenderit
       </p>
@@ -46,7 +47,8 @@ export default function UserDetails() {
           gridTemplateColumns: "repeat(3, 1fr)",
           backgroundColor: "#151C2Eff",
           borderRadius: "15px",
-          padding: "30px",
+          padding: "25px",
+          m: 1,
           textAlign: "center",
           gap: "10px",
         }}
@@ -72,7 +74,7 @@ export default function UserDetails() {
             gridTemplateColumns: "repeat(2, auto)",
             gridTemplateRows: "repeat(4, auto)",
             alignItems: "center",
-            padding: "20px",
+            padding: "10px",
           }}
         >
           <LocationOnIcon />
