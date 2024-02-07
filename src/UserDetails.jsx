@@ -1,12 +1,25 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 import Box from "@mui/system/Box";
 import Stack from "@mui/material/Stack";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import LinkIcon from "@mui/icons-material/Link";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import BusinessIcon from "@mui/icons-material/Business";
-import TestIcon from "../public/test-icon.jpg";
 
 export default function UserDetails() {
+  const [userData, setUserData] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("https://api.github.com/users/kebin20")
+      .then((res) => setUserData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(userData);
+
   return (
     <Box
       component="section"
@@ -23,21 +36,18 @@ export default function UserDetails() {
     >
       <Box component={"div"} sx={{ display: "flex", flexGrow: 1, gap: "20px" }}>
         <img
-          src={TestIcon}
-          alt="Your Image"
+          src={userData.avatar_url}
+          alt="Github user image"
           style={{ maxWidth: "50%", height: "auto", borderRadius: "50%" }}
         />
         <Box component={"div"} sx={{ flexGrow: 1 }}>
-          <p>Username Here</p>
-          <p>@githubuser</p>
-          <p>joined in date here</p>
+          <p>{userData.name}</p>
+          <p>@{userData.login}</p>
+          <p>{userData.created_at}</p>
         </Box>
       </Box>
 
-      <p style={{ marginTop: "25px", marginBottom: "25px" }}>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima eius
-        hic nostrum, qui reprehenderit
-      </p>
+      <p style={{ marginTop: "25px", marginBottom: "25px" }}>{userData.bio}</p>
 
       <Box
         component={"div"}
@@ -56,9 +66,9 @@ export default function UserDetails() {
         <span>Repos</span>
         <span>Followers</span>
         <span>Following</span>
-        <span>3</span>
-        <span>5</span>
-        <span>10</span>
+        <span>{userData.public_repos}</span>
+        <span>{userData.followers}</span>
+        <span>{userData.following}</span>
       </Box>
 
       <Box
@@ -78,13 +88,22 @@ export default function UserDetails() {
           }}
         >
           <LocationOnIcon />
-          <span>Location</span>
+          <span>{userData.location}</span>
           <LinkIcon />
-          <span>Github Link</span>
+          <span>{userData.blog}</span>
           <TwitterIcon />
-          <span>Twitter</span>
+          <span>
+            {userData.twitter_username === null
+              ? "No twitter handle available"
+              : userData.twitter_username}
+          </span>
           <BusinessIcon />
-          <span>Company</span>
+          <span>
+            {" "}
+            {userData.company === null
+              ? "No company data"
+              : userData.twitter_username}
+          </span>
         </Stack>
       </Box>
     </Box>
