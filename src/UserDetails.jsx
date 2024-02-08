@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -8,15 +9,15 @@ import LinkIcon from "@mui/icons-material/Link";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import BusinessIcon from "@mui/icons-material/Business";
 
-export default function UserDetails() {
+export default function UserDetails({ userName }) {
   const [userData, setUserData] = useState("");
 
   useEffect(() => {
     axios
-      .get("https://api.github.com/users/kebin20")
+      .get(`https://api.github.com/users/${userName}`)
       .then((res) => setUserData(res.data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [userName]);
 
   console.log(userData);
 
