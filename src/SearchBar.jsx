@@ -1,8 +1,11 @@
+/* eslint-disable react/prop-types */
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
+
+import { useState } from "react";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -44,7 +47,22 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function SearchAppBar({ onSubmitUserName }) {
+  const [inputValue, setInputValue] = useState("");
+
+  function handleChange(event) {
+    setInputValue(event.target.value);
+  }
+
+  function handleSubmit() {
+    onSubmitUserName(inputValue);
+    setInputValue("");
+  }
+
+  function handleKeyPress(event) {
+    event.key === "Enter" ? handleSubmit() : "";
+  }
+
   return (
     <Box
       sx={{
@@ -63,9 +81,14 @@ export default function SearchAppBar() {
         <StyledInputBase
           placeholder="Search Github username…"
           inputProps={{ "aria-label": "search Github username" }}
+          value={inputValue}
+          onChange={handleChange}
+          onKeyDown={handleKeyPress}
         />
       </Search>
-      <Button variant="contained">Search</Button>
+      <Button variant="contained" onClick={handleSubmit}>
+        Search
+      </Button>
     </Box>
   );
 }
