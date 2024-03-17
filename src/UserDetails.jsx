@@ -19,8 +19,6 @@ export default function UserDetails({ userName }) {
       .catch((err) => console.log(err));
   }, [userName]);
 
-  console.log(userData);
-
   return (
     <Box
       component="section"
@@ -89,20 +87,25 @@ export default function UserDetails({ userName }) {
           }}
         >
           <LocationOnIcon />
-          <span>{userData.location}</span>
+          <span>
+            {" "}
+            {userData.location === null
+              ? "No location provided"
+              : userData.location}
+          </span>
           <LinkIcon />
           <span>{userData.blog}</span>
           <TwitterIcon />
           <span>
             {userData.twitter_username === null
-              ? "No twitter handle available"
+              ? "No twitter handle provided"
               : userData.twitter_username}
           </span>
           <BusinessIcon />
           <span>
             {" "}
             {userData.company === null
-              ? "No company data"
+              ? "No company data provided"
               : userData.twitter_username}
           </span>
         </Stack>
