@@ -2,9 +2,9 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Switch from "@mui/material/Switch";
+// import Switch from "@mui/material/Switch";
 
-const label = { inputProps: { "aria-label": "Colour theme switcher" } };
+// const label = { inputProps: { "aria-label": "Color theme switcher" } };
 
 export default function Navbar() {
   return (
@@ -27,7 +27,7 @@ export default function Navbar() {
           <Typography variant="h6" component="h1" sx={{ flexGrow: 1 }}>
             devfinder
           </Typography>
-          <Box sx={{ flexGrow: 1 }}>
+          {/* <Box sx={{ flexGrow: 1 }}>
             <Typography
               variant="h6"
               component="span"
@@ -36,7 +36,7 @@ export default function Navbar() {
               LIGHT
             </Typography>
             <Switch {...label} defaultChecked />
-          </Box>
+          </Box> */}
         </Toolbar>
       </AppBar>
     </Box>
